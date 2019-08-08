@@ -5,6 +5,7 @@ import EventList from './views/EventList.vue'
 import EventShow from './views/EventShow.vue'
 import NProgress from 'nprogress'
 import store from '@/store/store'
+import NotFound from "./views/NotFound";
 
 Vue.use(Router)
 
@@ -33,9 +34,20 @@ const router = new Router({
               routeTo.params.event = event
               next()
             })
+            .catch(() => next({name: '404', params: { resource: 'event'}}))
       }
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: NotFound,
+      props: true
+    },
+    {
+      path: '*',
+      redirect: { name: '404', params: {resource: 'page'}}
     }
-  ]
+    ]
 })
 
 router.beforeEach((routeTo, routeFrom, next) => {
