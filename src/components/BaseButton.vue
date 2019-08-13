@@ -9,7 +9,7 @@
 <script>
     export default {
         name        : "BaseButton",
-        interitAttrs: false, // does not inherit class and style attributes in Vue 2
+        interitAttrs: false, // does not inherit class and style attributes in Vue 2 will in Vue 3
         props       : {
             buttonClass: {
                 type: String

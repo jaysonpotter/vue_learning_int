@@ -4,13 +4,17 @@ import camelCase from 'lodash/camelCase'
 import App from './App.vue'
 import router from './router'
 import store from './store/store'
-import BaseIcon from '@/components/BaseIcon'
 import 'nprogress/nprogress.css'
+import Vuelidate from 'vuelidate'
 
-Vue.component('BaseIcon', BaseIcon)
+Vue.use(Vuelidate)
+
+//Vue.component('BaseIcon', BaseIcon)
 
 Vue.config.productionTip = false
 
+// this makes all components that start with the word 'Base'
+// to automatically be usable as a component in views.
 const requireComponent = require.context(
   './components',
   false,
