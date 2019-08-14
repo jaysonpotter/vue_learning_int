@@ -6,8 +6,10 @@ import router from './router'
 import store from './store/store'
 import 'nprogress/nprogress.css'
 import Vuelidate from 'vuelidate'
+import DateFilter from './filters/date'
 
 Vue.use(Vuelidate)
+Vue.filter('date', DateFilter)
 
 // global mixin
 // warning mixes in with everything
