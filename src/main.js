@@ -9,6 +9,14 @@ import Vuelidate from 'vuelidate'
 
 Vue.use(Vuelidate)
 
+// global mixin
+// warning mixes in with everything
+// Vue.mixin({
+//   mounted(){
+//     console.log('I am mixed into every component.')
+//   }
+// })
+
 //Vue.component('BaseIcon', BaseIcon)
 
 Vue.config.productionTip = false
@@ -31,6 +39,7 @@ requireComponent.keys().forEach(fileName => {
   Vue.component(componentName, componentConfig.default || componentConfig)
 })
 
+// mixins must go above this
 new Vue({
   router,
   store,

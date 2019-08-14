@@ -6,30 +6,17 @@
 </template>
 
 <script>
+    import { formFieldMixin} from "../mixins/formFieldMixin"
+
     export default {
         name: "BaseInput",
-        inheritAttrs: false, // by default attributes are placed on the parent element aka: the div
-        props: {
-            label: {
-                type: String,
-                default: ''
-            },
-            value: [
-                String,
-                Number
-            ]
-        },
+        mixins: [formFieldMixin],
         computed: {
             listeners(){
                 return {
                     ...this.$listeners,
                     input: this.updateValue
                 }
-            }
-        },
-        methods: {
-            updateValue(event){
-                this.$emit('input', event.target.value)
             }
         }
     }
